@@ -2,80 +2,154 @@
 <html>
 <head>
   <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<title>
   
-  <title>Wyatt Lindsey</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="ES6 arrow functions and lexical thisLet’s take a look at one of the quirkiest behaviors in JavaScript.  We’ll start by examining the legacy version of the language’s interpretation of the keyword this">
+    Hexo
+  
+</title>
+
+<meta name="description" content="ES6 arrow functions and lexical thisLet’s take a look at one of the quirkiest behaviors in JavaScript.  We’ll start by examining the legacy version of the language’s interpretation of the keyword this">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Wyatt Lindsey">
+<meta property="og:title" content="Hexo">
 <meta property="og:url" content="http://yoursite.com/2016/11/19/ES6-arrow-functions-and-lexical-this/index.html">
-<meta property="og:site_name" content="Wyatt Lindsey">
+<meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="ES6 arrow functions and lexical thisLet’s take a look at one of the quirkiest behaviors in JavaScript.  We’ll start by examining the legacy version of the language’s interpretation of the keyword this">
 <meta property="og:updated_time" content="2016-11-19T08:39:58.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Wyatt Lindsey">
+<meta name="twitter:title" content="Hexo">
 <meta name="twitter:description" content="ES6 arrow functions and lexical thisLet’s take a look at one of the quirkiest behaviors in JavaScript.  We’ll start by examining the legacy version of the language’s interpretation of the keyword this">
-  
-    <link rel="alternate" href="/atom.xml" title="Wyatt Lindsey" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  <link rel="stylesheet" href="/css/style.css">
-  
+
+
+  <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+
+
+
+  <link rel="icon" href="/favicon.png">
+
+
+<link rel="stylesheet" href="/perfect-scrollbar/css/perfect-scrollbar.min.css">
+<link rel="stylesheet" href="/styles/main.css">
+
+
+
+
+
 
 </head>
+<body
+  
+    class="monochrome"
+  
+  >
+  <div class="mobile-header">
+  <button class="sidebar-toggle" type="button">
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+  </button>
+  <a class="title" href="/">Hexo</a>
+</div>
 
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Wyatt Lindsey</a>
-      </h1>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
+  <div class="main-container">
+    <div class="sidebar">
+  <div class="header">
+    <h1 class="title"><a href="/">Hexo</a></h1>
+    
+    <div class="info">
+      <div class="content">
         
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
       </div>
+      
+        <div class="avatar">
+          
+            <a href="/about"><img src="https://s12.postimg.org/da8bo4e1p/wyatt.jpg"></a>
+          
+        </div>
+      
     </div>
   </div>
-</header>
-      <div class="outer">
-        <section id="main"><article id="post-ES6-arrow-functions-and-lexical-this" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/11/19/ES6-arrow-functions-and-lexical-this/" class="article-date">
-  <time datetime="2016-11-19T08:38:02.000Z" itemprop="datePublished">2016-11-19</time>
-</a>
+  <div class="body">
+    
+      
+        <ul class="nav">
+          
+            
+              <li class="category-list-container">
+                <a href="javascript:;">分类</a>
+                
+              </li>
+            
+          
+            
+              <li class="tag-list-container">
+                <a href="javascript:;">标签</a>
+                
+              </li>
+            
+          
+            
+              <li class="archive-list-container">
+                <a href="javascript:;">归档</a>
+                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">2016</a><span class="archive-list-count">1</span></li></ul>
+              </li>
+            
+          
+        </ul>
+      
+        <ul class="nav">
+          
+            
+              <li>
+                <a href="/" title="Homepage">Homepage</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="/archives" title="By Year">By Year</a>
+              </li>
+            
+          
+        </ul>
+      
+        <ul class="nav">
+          
+            
+              <li>
+                <a href="https://github.com/wyattlindsey" title="Github" target="_blank" rel="external">Github</a>
+              </li>
+            
+          
+        </ul>
+      
     
   </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
+</div>
+
+    <div class="main-content">
       
-        <h1 id="ES6-arrow-functions-and-lexical-this"><a href="#ES6-arrow-functions-and-lexical-this" class="headerlink" title="ES6 arrow functions and lexical this"></a><strong>ES6 arrow functions and lexical <code>this</code></strong></h1><p>Let’s take a look at one of the quirkiest behaviors in JavaScript.  We’ll start by examining the legacy version of the language’s interpretation of the keyword <code>this</code>.  Then we’ll consider some new behavior introduced by ES6’s arrow functions.  How are they different?  Which approach is more intuitive and/or useful?  Read on for insight!</p>
+        <div style="max-width: 1000px">
+      
+          <article id="post-ES6-arrow-functions-and-lexical-this" class="article article-type-post">
+  
+  
+
+  <div class="article-info">
+    <span class="article-date">
+  2016-11-19
+</span>
+
+    
+
+    
+
+  </div>
+  <div class="article-entry">
+    <h1 id="ES6-arrow-functions-and-lexical-this"><a href="#ES6-arrow-functions-and-lexical-this" class="headerlink" title="ES6 arrow functions and lexical this"></a><strong>ES6 arrow functions and lexical <code>this</code></strong></h1><p>Let’s take a look at one of the quirkiest behaviors in JavaScript.  We’ll start by examining the legacy version of the language’s interpretation of the keyword <code>this</code>.  Then we’ll consider some new behavior introduced by ES6’s arrow functions.  How are they different?  Which approach is more intuitive and/or useful?  Read on for insight!</p>
 <p>Prior to ECMAScript 2015 (a.k.a. ES6), JavaScript used an uncommon approach to the evaluation of <code>this</code>.  It made object-orientation in a functional language difficult.  For object-oriented design, <code>this</code> serves a critical purpose in creating objects that display polymorphism.  The ECMAScript 5.1 specification interprets so-called <em>ThisBinding</em> in a manner often described as confusing and unintuitive.</p>
 <p><em>ThisBinding</em> is one of several execution contexts employed by the JavaScript interpreter to bind values to symbols.  When passing functions as callbacks to other functions, the value of <code>this</code> at runtime might surprise you.  For example:</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Cupcake</span>(<span class="params">type, frosting</span>) </span>&#123;</div><div class="line">  <span class="keyword">this</span>.type = type;</div><div class="line">  <span class="keyword">this</span>.frosting = frosting;</div><div class="line"></div><div class="line">  <span class="keyword">this</span>.announce = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'And now, the moment you\'ve been waiting for! Presenting...'</span>);</div><div class="line"></div><div class="line">    setTimeout(<span class="keyword">this</span>._present, <span class="number">1500</span>);</div><div class="line">  &#125;;</div><div class="line"></div><div class="line">  <span class="keyword">this</span>._present = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'...a '</span> + <span class="keyword">this</span>.type +</div><div class="line">      <span class="string">' cupcake with '</span> + <span class="keyword">this</span>.frosting + <span class="string">' frosting'</span>);</div><div class="line">  &#125;;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> chocolateCupcake = <span class="keyword">new</span> Cupcake(<span class="string">'chocolate'</span>, <span class="string">'buttercream'</span>);</div><div class="line">chocolateCupcake.announce();</div></pre></td></tr></table></figure>
@@ -108,87 +182,117 @@
 <p>Note that arrow functions can be invoked through <code>.call</code> and <code>.apply</code> but we can not pass in <code>this</code> as an argument, only regular variables.  Also, arrow functions do not have their own <code>arguments</code> object.  Rest parameters still work though.  For other quirks and features of arrow functions, see the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions" target="_blank" rel="external">MDN reference</a>.</p>
 <h2 id="conclusion"><a href="#conclusion" class="headerlink" title="conclusion"></a>conclusion</h2><p>I don’t think I’ve ever heard someone say something nice about legacy JavaScript’s specification for <code>this</code> binding.  I personally find the behavior counterintuitive but workable.  ES5’s notion of the keyword has its own logic and we must know it backward and forward.  But going forward, the ES6 arrow function gives us another tool, one that delivers a little logical and syntactic sugar for our event-driven, async code.</p>
 
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/19/ES6-arrow-functions-and-lexical-this/" data-id="civoz1lmp000022pn7xhzv5ia" class="article-share-link">Share</a>
-      
-      
-    </footer>
   </div>
-  
+  <footer class="article-footer">
     
-  
+  <div class="cc">
+    <a href="http://creativecommons.org/licenses/by-sa/4.0/deed.en" target="_blank" title="署名-相同方式共享">
+      <img src="/images/cc/cc.png">
+      
+          <img src="/images/cc/by.png">
+        
+          <img src="/images/cc/sa.png">
+      
+      <span>
+        本作品采用知识共享 署名-相同方式共享 4.0 国际许可协议进行许可。
+      </span>
+    </a>
+  </div>
+
+
+    
+
+  </footer>
 </article>
 
-</section>
-        
-          <aside id="sidebar">
-  
-    
 
-  
-    
 
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a></li></ul>
+
+
+
+
+          <div class="main-footer">
+
+</div>
+
+      
+        </div>
+      
     </div>
   </div>
+  <script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
 
+  <link rel="stylesheet" href="/PhotoSwipe/photoswipe.css">
+  <link rel="stylesheet" href="/PhotoSwipe/default-skin/default-skin.css">
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2016/11/19/ES6-arrow-functions-and-lexical-this/">(no title)</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
+  <!-- Root element of PhotoSwipe. Must have class pswp. -->
+  <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
 
-  
-</aside>
-        
+    <!-- Background of PhotoSwipe.
+             It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+      <!-- Container that holds slides.
+                PhotoSwipe keeps only 3 of them in the DOM to save memory.
+                Don't modify these 3 pswp__item elements, data is added later on. -->
+      <div class="pswp__container">
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
       </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2016 Wyatt Lindsey<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+
+      <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+      <div class="pswp__ui pswp__ui--hidden">
+
+        <div class="pswp__top-bar">
+
+          <!--  Controls are self-explanatory. Order can be changed. -->
+
+          <div class="pswp__counter"></div>
+
+          <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+          <button class="pswp__button pswp__button--share" title="Share"></button>
+
+          <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+          <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+          <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+          <!-- element will get class pswp__preloader--active when preloader is running -->
+          <div class="pswp__preloader">
+            <div class="pswp__preloader__icn">
+              <div class="pswp__preloader__cut">
+                <div class="pswp__preloader__donut"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+          <div class="pswp__share-tooltip"></div>
+        </div>
+
+        <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+
+        <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+
+        <div class="pswp__caption">
+          <div class="pswp__caption__center"></div>
+        </div>
+      </div>
     </div>
   </div>
-</footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+  <script src="/PhotoSwipe/photoswipe.js"></script>
+  <script src="/PhotoSwipe/photoswipe-ui-default.js"></script>
 
 
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script src="/perfect-scrollbar/js/min/perfect-scrollbar.min.js"></script>
+<script src="/scripts/main.js"></script>
 
-
-<script src="/js/script.js"></script>
-
-  </div>
 </body>
 </html>
