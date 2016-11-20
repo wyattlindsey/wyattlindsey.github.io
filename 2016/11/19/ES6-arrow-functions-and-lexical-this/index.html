@@ -8,20 +8,20 @@
 
 <title>
   
-    Wyatt Lindsey
+    ES6 arrow functions and lexical `this`
   
 </title>
 
-<meta name="description" content="ES6 arrow functions and lexical thisLet’s take a look at one of the quirkiest behaviors in JavaScript.  We’ll start by examining the legacy version of the language’s interpretation of the keyword this">
+<meta name="description" content="Let’s take a look at one of the quirkiest behaviors in JavaScript.  We’ll start by examining the legacy version of the language’s interpretation of the keyword this.  Then we’ll consider some new beha">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Wyatt Lindsey">
+<meta property="og:title" content="ES6 arrow functions and lexical `this`">
 <meta property="og:url" content="http://yoursite.com/2016/11/19/ES6-arrow-functions-and-lexical-this/index.html">
 <meta property="og:site_name" content="Wyatt Lindsey">
-<meta property="og:description" content="ES6 arrow functions and lexical thisLet’s take a look at one of the quirkiest behaviors in JavaScript.  We’ll start by examining the legacy version of the language’s interpretation of the keyword this">
-<meta property="og:updated_time" content="2016-11-20T05:19:05.000Z">
+<meta property="og:description" content="Let’s take a look at one of the quirkiest behaviors in JavaScript.  We’ll start by examining the legacy version of the language’s interpretation of the keyword this.  Then we’ll consider some new beha">
+<meta property="og:updated_time" content="2016-11-20T05:30:24.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Wyatt Lindsey">
-<meta name="twitter:description" content="ES6 arrow functions and lexical thisLet’s take a look at one of the quirkiest behaviors in JavaScript.  We’ll start by examining the legacy version of the language’s interpretation of the keyword this">
+<meta name="twitter:title" content="ES6 arrow functions and lexical `this`">
+<meta name="twitter:description" content="Let’s take a look at one of the quirkiest behaviors in JavaScript.  We’ll start by examining the legacy version of the language’s interpretation of the keyword this.  Then we’ll consider some new beha">
 
 
   <link rel="alternative" href="/atom.xml" title="Wyatt Lindsey" type="application/atom+xml">
@@ -136,6 +136,10 @@
       
           <article id="post-ES6-arrow-functions-and-lexical-this" class="article article-type-post">
   
+    <h1 class="article-header">
+      ES6 arrow functions and lexical `this`
+    </h1>
+  
   
 
   <div class="article-info">
@@ -149,7 +153,7 @@
 
   </div>
   <div class="article-entry">
-    <h1 id="ES6-arrow-functions-and-lexical-this"><a href="#ES6-arrow-functions-and-lexical-this" class="headerlink" title="ES6 arrow functions and lexical this"></a><strong>ES6 arrow functions and lexical <code>this</code></strong></h1><p>Let’s take a look at one of the quirkiest behaviors in JavaScript.  We’ll start by examining the legacy version of the language’s interpretation of the keyword <code>this</code>.  Then we’ll consider some new behavior introduced by ES6’s arrow functions.  How are they different?  Which approach is more intuitive and/or useful?  Read on for insight!</p>
+    <p>Let’s take a look at one of the quirkiest behaviors in JavaScript.  We’ll start by examining the legacy version of the language’s interpretation of the keyword <code>this</code>.  Then we’ll consider some new behavior introduced by ES6’s arrow functions.  How are they different?  Which approach is more intuitive and/or useful?  Read on for insight!</p>
 <p>Prior to ECMAScript 2015 (a.k.a. ES6), JavaScript used an uncommon approach to the evaluation of <code>this</code>.  It made object-orientation in a functional language difficult.  For object-oriented design, <code>this</code> serves a critical purpose in creating objects that display polymorphism.  The ECMAScript 5.1 specification interprets so-called <em>ThisBinding</em> in a manner often described as confusing and unintuitive.</p>
 <p><em>ThisBinding</em> is one of several execution contexts employed by the JavaScript interpreter to bind values to symbols.  When passing functions as callbacks to other functions, the value of <code>this</code> at runtime might surprise you.  For example:</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Cupcake</span>(<span class="params">type, frosting</span>) </span>&#123;</div><div class="line">  <span class="keyword">this</span>.type = type;</div><div class="line">  <span class="keyword">this</span>.frosting = frosting;</div><div class="line"></div><div class="line">  <span class="keyword">this</span>.announce = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'And now, the moment you\'ve been waiting for! Presenting...'</span>);</div><div class="line"></div><div class="line">    setTimeout(<span class="keyword">this</span>._present, <span class="number">1500</span>);</div><div class="line">  &#125;;</div><div class="line"></div><div class="line">  <span class="keyword">this</span>._present = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'...a '</span> + <span class="keyword">this</span>.type +</div><div class="line">      <span class="string">' cupcake with '</span> + <span class="keyword">this</span>.frosting + <span class="string">' frosting'</span>);</div><div class="line">  &#125;;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> chocolateCupcake = <span class="keyword">new</span> Cupcake(<span class="string">'chocolate'</span>, <span class="string">'buttercream'</span>);</div><div class="line">chocolateCupcake.announce();</div></pre></td></tr></table></figure>

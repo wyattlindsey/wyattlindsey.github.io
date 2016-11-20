@@ -599,7 +599,7 @@ body {
   font-size: 13px;
 }
 .post-list .article-entry {
-  font-size: 14px;
+  font-size: 18px;
 }
 @media screen and (max-width: 768px) {
   .post-list .post-list-item {
