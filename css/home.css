@@ -110,6 +110,13 @@ html{
 	-o-background-size: cover;
 }
 
+#wl-github-home {
+	position: absolute;
+	top: 28px;
+	right: 3%;
+	filter:alpha(opacity=60);  -moz-opacity:0.6;  -khtml-opacity: 0.6;  opacity: 0.6;
+}
+
 .blur{	
     filter: url(blur.svg#blur); /* FireFox, Chrome, Opera */
     
@@ -187,7 +194,7 @@ h1 {
     font-family: "futura-pt",Helvetica,Arial,"Hiragino Sans GB","Hiragino Sans GB W3",Microsoft JhengHei,WenQuanYi Micro Hei,"Microsoft YaHei",sans-serif;
     font-weight: bold;
     font-size: 40px;
-	line-height: 1.9em;
+	line-height: 1.3em;
     margin: 12px 0;
     left: 4px;
 }
@@ -195,6 +202,7 @@ h3 {
 	font-family: "futura-pt", Helvetica, Arial, "Hiragino Sans GB", "Hiragino Sans GB W3", Microsoft JhengHei, WenQuanYi Micro Hei, "Microsoft YaHei", sans-serif;
     font-weight: normal;
     font-size: 25px;
+	line-height: 35px;
     margin-bottom: 30px;
     left: 3px;
 }
