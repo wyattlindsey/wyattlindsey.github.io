@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-12-01T05:46:00.000Z</updated>
+  <updated>2017-01-23T20:24:11.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2016/11/30/roll-your-own-promisify-function/"/>
     <id>http://yoursite.com/2016/11/30/roll-your-own-promisify-function/</id>
     <published>2016-11-30T08:40:25.000Z</published>
-    <updated>2016-12-01T05:46:00.000Z</updated>
+    <updated>2017-01-23T20:24:11.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>We have several choices when it comes to JavaScript promise libraries.  Some include a <code>promisify</code> feature that allows you to turn regular callback-style asynchronous functions into promises.  Additionally, NPM hosts <a href="https://www.npmjs.com/browse/keyword/promisify" target="_blank" rel="external">numerous Node modules</a> that promisify functions.  So why would we want to create our own?</p>
 <p>Rolling our own version will deepen our understanding of how promisification, and ultimately promises themselves, work.  Also, knowing how to write a custom variant just might come in handy when other modules don’t deliver the desired results.  We’ll look at promisifying node-style callback functions, but the general principles apply other potential scenarios.</p>
@@ -44,10 +44,9 @@
 <p>This error-first argument pattern is what distinguishes node-style function callbacks.  The asynchronous outer function eventually invokes the supplied callback, which takes in:</p>
 <ul>
 <li>an <em>error</em> argument, usually set to <code>null</code> if nothing went wrong</li>
-<li><p>response data, passed in as the second argument</p>
-<p>###Foundation function</p>
-</li>
+<li>response data, passed in as the second argument</li>
 </ul>
+<p>###Foundation function</p>
 <p>So what exactly does this function need to perform?  For starters, it should:</p>
 <ul>
 <li>Take in a node-style async function.</li>
