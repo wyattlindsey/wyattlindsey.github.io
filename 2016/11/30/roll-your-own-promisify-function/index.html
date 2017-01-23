@@ -17,7 +17,7 @@
 <meta property="og:description" content="IntroductionWe have several choices when it comes to JavaScript promise libraries.  Some include a promisify feature that allows you to turn regular callback-style asynchronous functions into promise">
 <meta property="og:image" content="http://res.cloudinary.com/dayskokep/image/upload/v1485206874/pinky-swear-329329_1280_aoxb9k.jpg">
 <meta property="og:image" content="http://res.cloudinary.com/dayskokep/image/upload/v1485206869/love-castle-832120_1280_lm2odz.jpg">
-<meta property="og:updated_time" content="2017-01-23T21:30:22.000Z">
+<meta property="og:updated_time" content="2017-01-23T21:33:02.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Roll your own promisify function">
 <meta name="twitter:description" content="IntroductionWe have several choices when it comes to JavaScript promise libraries.  Some include a promisify feature that allows you to turn regular callback-style asynchronous functions into promise">
@@ -165,7 +165,7 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="http://res.cloudinary.com/dayskokep/image/upload/v1485206874/pinky-swear-329329_1280_aoxb9k.jpg" alt="pinky-swear-image"></p>
+        <p><img src="http://res.cloudinary.com/dayskokep/image/upload/v1485206874/pinky-swear-329329_1280_aoxb9k.jpg" alt=""></p>
 <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>We have several choices when it comes to JavaScript promise libraries.  Some include a <code>promisify</code> feature that allows you to turn regular callback-style asynchronous functions into promises.  Additionally, NPM hosts <a href="https://www.npmjs.com/browse/keyword/promisify" target="_blank" rel="external">numerous Node modules</a> that promisify functions.  So why would we want to create our own?</p>
 <p>Rolling our own version will deepen our understanding of how promisification, and ultimately promises themselves, work.  Also, knowing how to write a custom variant just might come in handy when other modules don’t deliver the desired results.  We’ll look at promisifying node-style callback functions, but the general principles apply other potential scenarios.</p>
 <p>First let’s review some of the reasoning behind using promises.  If you’re familiar with this pattern, skip to <a href="#building-up-promisify">Building up <code>promisify</code></a>.</p>
@@ -204,7 +204,7 @@
 </ul>
 <p>The function we pass into the <code>Promise</code> constructor will be run later,  but the promise itself returns immediately.  This object allows the user to chain methods like <code>.then</code>, <code>.catch</code>, <code>.finally</code> onto the it.  Here’s how the instantiation will look in <code>promisify</code>:</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">promisify</span>(<span class="params">nodeStyleFunction</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>) </span>&#123;</div><div class="line">      ...</div><div class="line">    &#125;;</div><div class="line">  &#125;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><img src="http://res.cloudinary.com/dayskokep/image/upload/v1485206869/love-castle-832120_1280_lm2odz.jpg" alt="heart-locks-image"></p>
+<p><img src="http://res.cloudinary.com/dayskokep/image/upload/v1485206869/love-castle-832120_1280_lm2odz.jpg" alt=""></p>
 <h3 id="Invoking-the-wrapped-function"><a href="#Invoking-the-wrapped-function" class="headerlink" title="Invoking the wrapped function"></a>Invoking the wrapped function</h3><p>We’ve built the foundation for <code>promisify</code>, returning a promise object with the correct function wrapper.  Now we need to actually invoke the function we’re wrapping.</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">...</div><div class="line">    return <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>) </span>&#123;</div><div class="line">      nodeStyleFunction();</div><div class="line">    &#125;;</div><div class="line">...</div></pre></td></tr></table></figure>
 <p>The Node function expects any number of arguments, as long as the last one is an error-first callback.  We need to pass in those arguments as well as the callback.  Let’s start with the latter.</p>

@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-01-23T21:30:22.000Z</updated>
+  <updated>2017-01-23T21:33:02.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,9 +20,9 @@
     <link href="http://yoursite.com/2016/11/30/roll-your-own-promisify-function/"/>
     <id>http://yoursite.com/2016/11/30/roll-your-own-promisify-function/</id>
     <published>2016-11-30T08:40:25.000Z</published>
-    <updated>2017-01-23T21:30:22.000Z</updated>
+    <updated>2017-01-23T21:33:02.000Z</updated>
     
-    <content type="html"><![CDATA[<p><img src="http://res.cloudinary.com/dayskokep/image/upload/v1485206874/pinky-swear-329329_1280_aoxb9k.jpg" alt="pinky-swear-image"></p>
+    <content type="html"><![CDATA[<p><img src="http://res.cloudinary.com/dayskokep/image/upload/v1485206874/pinky-swear-329329_1280_aoxb9k.jpg" alt=""></p>
 <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>We have several choices when it comes to JavaScript promise libraries.  Some include a <code>promisify</code> feature that allows you to turn regular callback-style asynchronous functions into promises.  Additionally, NPM hosts <a href="https://www.npmjs.com/browse/keyword/promisify" target="_blank" rel="external">numerous Node modules</a> that promisify functions.  So why would we want to create our own?</p>
 <p>Rolling our own version will deepen our understanding of how promisification, and ultimately promises themselves, work.  Also, knowing how to write a custom variant just might come in handy when other modules don’t deliver the desired results.  We’ll look at promisifying node-style callback functions, but the general principles apply other potential scenarios.</p>
 <p>First let’s review some of the reasoning behind using promises.  If you’re familiar with this pattern, skip to <a href="#building-up-promisify">Building up <code>promisify</code></a>.</p>
@@ -61,7 +61,7 @@
 </ul>
 <p>The function we pass into the <code>Promise</code> constructor will be run later,  but the promise itself returns immediately.  This object allows the user to chain methods like <code>.then</code>, <code>.catch</code>, <code>.finally</code> onto the it.  Here’s how the instantiation will look in <code>promisify</code>:</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">promisify</span>(<span class="params">nodeStyleFunction</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>) </span>&#123;</div><div class="line">      ...</div><div class="line">    &#125;;</div><div class="line">  &#125;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><img src="http://res.cloudinary.com/dayskokep/image/upload/v1485206869/love-castle-832120_1280_lm2odz.jpg" alt="heart-locks-image"></p>
+<p><img src="http://res.cloudinary.com/dayskokep/image/upload/v1485206869/love-castle-832120_1280_lm2odz.jpg" alt=""></p>
 <h3 id="Invoking-the-wrapped-function"><a href="#Invoking-the-wrapped-function" class="headerlink" title="Invoking the wrapped function"></a>Invoking the wrapped function</h3><p>We’ve built the foundation for <code>promisify</code>, returning a promise object with the correct function wrapper.  Now we need to actually invoke the function we’re wrapping.</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">...</div><div class="line">    return <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>) </span>&#123;</div><div class="line">      nodeStyleFunction();</div><div class="line">    &#125;;</div><div class="line">...</div></pre></td></tr></table></figure>
 <p>The Node function expects any number of arguments, as long as the last one is an error-first callback.  We need to pass in those arguments as well as the callback.  Let’s start with the latter.</p>
@@ -94,8 +94,8 @@
     
     <summary type="html">
     
-      &lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dayskokep/image/upload/v1485206874/pinky-swear-329329_1280_aoxb9k.jpg&quot; alt=&quot;pinky-swear-image&quot;&gt;&lt;/p&gt;
-&lt;
+      &lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dayskokep/image/upload/v1485206874/pinky-swear-329329_1280_aoxb9k.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;Introducti
     
     </summary>
     
@@ -107,9 +107,9 @@
     <link href="http://yoursite.com/2016/11/19/ES6-arrow-functions-and-lexical-this/"/>
     <id>http://yoursite.com/2016/11/19/ES6-arrow-functions-and-lexical-this/</id>
     <published>2016-11-20T05:28:22.000Z</published>
-    <updated>2017-01-23T21:23:27.000Z</updated>
+    <updated>2017-01-23T21:33:02.000Z</updated>
     
-    <content type="html"><![CDATA[<p><img src="http://res.cloudinary.com/dayskokep/image/upload/v1485206383/arrow-1557462_1280_fdjjsy.jpg" alt="archery-image"></p>
+    <content type="html"><![CDATA[<p><img src="http://res.cloudinary.com/dayskokep/image/upload/v1485206383/arrow-1557462_1280_fdjjsy.jpg" alt=""></p>
 <p>Let’s take a look at one of the quirkiest behaviors in JavaScript.  We’ll start by examining the legacy version of the language’s interpretation of the keyword <code>this</code>.  Then we’ll consider some new behavior introduced by ES6’s arrow functions.  How are they different?  Which approach is more intuitive and/or useful?  Read on for insight!</p>
 <p>Prior to ECMAScript 2015 (a.k.a. ES6), JavaScript used an uncommon approach to the evaluation of <code>this</code>.  It made object-orientation in a functional language difficult.  For object-oriented design, <code>this</code> serves a critical purpose in creating objects that display polymorphism.  The ECMAScript 5.1 specification interprets so-called <em>ThisBinding</em> in a manner often described as confusing and unintuitive.</p>
 <p><em>ThisBinding</em> is one of several execution contexts employed by the JavaScript interpreter to bind values to symbols.  When passing functions as callbacks to other functions, the value of <code>this</code> at runtime might surprise you.  For example:</p>
@@ -117,7 +117,7 @@
 <p>Everything looks like it should work.  The <code>announce()</code> method is going to queue up some code for 1.5 seconds in the future.  The function it passes to <code>setTimeout</code> refers to some information about the cupcake.  These attributes are stored in that instance of the Cupcake object.  The helper function <code>_present()</code> is defined in the same scope as the member variables <code>this.type</code> and <code>this.frosting</code>.  So why do we get the following output?</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">And now, the moment you've been waiting for! Presenting...</div><div class="line">...a undefined cupcake with undefined frosting</div></pre></td></tr></table></figure>
 <p>The problem is that when <code>present()</code> eventually goes off, the value of <code>this</code> is not this cupcake instance, even though <em>it really looks like it should be.</em>  After all, we’re defining <code>_present()</code> in the same block of code where we set the variables <code>this.type</code> and <code>this.frosting</code>.  In truth the value of <code>this</code> is decided later on, in the current execution context in which it was invoked.  In the case of <code>_present()</code>, when it’s invoked 1.5 seconds later, we’re actually in the global scope.  In that case, <code>this</code> refers to the global object <code>window</code>.</p>
-<h2 id="Options-for-ThisBinding"><a href="#Options-for-ThisBinding" class="headerlink" title="Options for ThisBinding"></a>Options for ThisBinding</h2><h3 id="closure"><a href="#closure" class="headerlink" title="closure"></a>closure</h3><p><img src="http://res.cloudinary.com/dayskokep/image/upload/v1485206527/cupcakes-690040_1280_zlgw0u.jpg" alt="cupcakes-image"></p>
+<h2 id="Options-for-ThisBinding"><a href="#Options-for-ThisBinding" class="headerlink" title="Options for ThisBinding"></a>Options for ThisBinding</h2><h3 id="closure"><a href="#closure" class="headerlink" title="closure"></a>closure</h3><p><img src="http://res.cloudinary.com/dayskokep/image/upload/v1485206527/cupcakes-690040_1280_zlgw0u.jpg" alt=""></p>
 <p>So how can we make the keyword <code>this</code> resolve to the thing we actually want and not <code>window</code>?  To write event-driven, asynchronous code we need our callbacks to know about the context in which they were defined, about the objects involved in the event.  If <code>this</code> were just like any other variable, we wouldn’t have anything to worry about.  In fact, assigning the value of <code>this</code> to a variable and then using <em>that variable</em> inside the callback provides one possible solution.  The <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures" target="_blank" rel="external">closure feature</a> of the language, part of lexical scoping, makes this possible:</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Cupcake</span>(<span class="params">type, frosting</span>) </span>&#123;</div><div class="line">  <span class="keyword">this</span>.type = type;</div><div class="line">  <span class="keyword">this</span>.frosting = frosting;</div><div class="line"></div><div class="line">  <span class="keyword">var</span> self = <span class="keyword">this</span>;</div><div class="line"></div><div class="line">  <span class="keyword">this</span>.announce = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'And now, the moment you\'ve been waiting for! Presenting...'</span>);</div><div class="line"></div><div class="line">    setTimeout(<span class="keyword">this</span>._present, <span class="number">1500</span>);</div><div class="line">  &#125;;</div><div class="line"></div><div class="line">  <span class="keyword">this</span>._present = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'...a '</span> + self.type +</div><div class="line">      <span class="string">' cupcake with '</span> + self.frosting + <span class="string">' frosting'</span>);</div><div class="line">  &#125;;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> chocolateCupcake = <span class="keyword">new</span> Cupcake(<span class="string">'chocolate'</span>, <span class="string">'buttercream'</span>);</div><div class="line">chocolateCupcake.announce();</div></pre></td></tr></table></figure>
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">And now, the moment you've been waiting for! Presenting...</div><div class="line">...a chocolate cupcake with buttercream frosting</div></pre></td></tr></table></figure>
@@ -147,8 +147,8 @@
     
     <summary type="html">
     
-      &lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dayskokep/image/upload/v1485206383/arrow-1557462_1280_fdjjsy.jpg&quot; alt=&quot;archery-image&quot;&gt;&lt;/p&gt;
-&lt;p&gt;Let’s t
+      &lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dayskokep/image/upload/v1485206383/arrow-1557462_1280_fdjjsy.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;Let’s take a look at
     
     </summary>
     
