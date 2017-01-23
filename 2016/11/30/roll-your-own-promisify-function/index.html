@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/11/30/roll-your-own-promisify-function/index.html">
 <meta property="og:site_name" content="Wyatt Lindsey">
 <meta property="og:description" content="IntroductionWe have several choices when it comes to JavaScript promise libraries.  Some include a promisify feature that allows you to turn regular callback-style asynchronous functions into promises">
-<meta property="og:updated_time" content="2017-01-23T20:24:11.000Z">
+<meta property="og:updated_time" content="2017-01-23T20:29:43.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Roll your own promisify function">
 <meta name="twitter:description" content="IntroductionWe have several choices when it comes to JavaScript promise libraries.  Some include a promisify feature that allows you to turn regular callback-style asynchronous functions into promises">
@@ -186,8 +186,7 @@
 <li>an <em>error</em> argument, usually set to <code>null</code> if nothing went wrong</li>
 <li>response data, passed in as the second argument</li>
 </ul>
-<p>###Foundation function</p>
-<p>So what exactly does this function need to perform?  For starters, it should:</p>
+<h3 id="Foundation-function"><a href="#Foundation-function" class="headerlink" title="Foundation function"></a>Foundation function</h3><p>So what exactly does this function need to perform?  For starters, it should:</p>
 <ul>
 <li>Take in a node-style async function.</li>
 <li>Return a function that follows the promise pattern.</li>
@@ -258,7 +257,7 @@
     <div id="toc" class="toc-article">
     <strong class="toc-title">Contents</strong>
     
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-number">1.</span> <span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Callbacks-and-promises"><span class="toc-number">2.</span> <span class="toc-text">Callbacks and promises</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Building-up-Promisify"><span class="toc-number">3.</span> <span class="toc-text"> Building up Promisify</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#The-Node-style-pattern"><span class="toc-number">3.1.</span> <span class="toc-text">The Node-style pattern</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Invoking-the-wrapped-function"><span class="toc-number">3.2.</span> <span class="toc-text">Invoking the wrapped function</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Handling-arguments"><span class="toc-number">3.3.</span> <span class="toc-text">Handling arguments</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Example"><span class="toc-number">4.</span> <span class="toc-text">Example</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-number">1.</span> <span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Callbacks-and-promises"><span class="toc-number">2.</span> <span class="toc-text">Callbacks and promises</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Building-up-Promisify"><span class="toc-number">3.</span> <span class="toc-text"> Building up Promisify</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#The-Node-style-pattern"><span class="toc-number">3.1.</span> <span class="toc-text">The Node-style pattern</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Foundation-function"><span class="toc-number">3.2.</span> <span class="toc-text">Foundation function</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Invoking-the-wrapped-function"><span class="toc-number">3.3.</span> <span class="toc-text">Invoking the wrapped function</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Handling-arguments"><span class="toc-number">3.4.</span> <span class="toc-text">Handling arguments</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Example"><span class="toc-number">4.</span> <span class="toc-text">Example</span></a></li></ol>
     
     </div>
   </aside>
