@@ -62,6 +62,7 @@ export const projects: Project[] = [
     repoUrl: 'https://github.com/wyattlindsey/virtual-handpan',
     liveUrl: 'https://wyattlindsey.github.io/virtual-handpan/',
     embed: 'iframe',
+    poster: '/posters/virtual-handpan.jpg',
     aspect: 16 / 10,
     year: 2026,
     featured: true,
@@ -103,6 +104,7 @@ export const projects: Project[] = [
     repoUrl: 'https://github.com/wyattlindsey/3d-math-visualizer',
     liveUrl: 'https://wyattlindsey.github.io/3d-math-visualizer/',
     embed: 'iframe',
+    poster: '/posters/3d-math-visualizer.png',
     // The app stacks a controls bar, the scene, and an equations panel, so it
     // needs a tall frame.
     aspect: 4 / 3,
