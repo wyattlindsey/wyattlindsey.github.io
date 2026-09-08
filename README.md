@@ -1,43 +1,39 @@
-# Astro Starter Kit: Minimal
+# wyattlindsey.github.io
 
-```sh
-npm create astro@latest -- --template minimal
+Portfolio hub at https://wyattlindsey.github.io/. Each demo lives in its own
+repository and deploys to its own GitHub Pages subpath; this site only lists
+them and embeds the live builds. It never builds the demos itself.
+
+## Running it
+
+```bash
+npm install
+npm run dev
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+`npm run build` writes a static site to `dist/`. Pushes to `master` deploy
+through `.github/workflows/pages.yml`.
 
-## 🚀 Project Structure
+## Adding a project
 
-Inside of your Astro project, you'll see the following folders and files:
+1. Deploy the project to `https://wyattlindsey.github.io/<repo>/` from its own
+   repository. [virtual-handpan](https://github.com/wyattlindsey/virtual-handpan)
+   has a `pages.yml` workflow and a `BASE_PATH`-aware Vite config to copy.
+2. Add an entry to [`src/data/projects.ts`](src/data/projects.ts). The
+   `embed` field picks the card style: `iframe` embeds the demo behind a
+   Launch button, `link` opens it in a new tab, `repo` links to source only.
+3. Optionally drop a poster image in `public/posters/` and reference it from
+   the entry. Without one the card renders a generated poster.
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+## Layout
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+- `src/data/projects.ts` — the project registry, the only file that changes
+  when a project is added.
+- `src/components/ProjectCard.astro` — poster, Launch/Close behaviour, links.
+- `src/layouts/Base.astro` — page chrome and global styles.
+- `src/pages/index.astro` — the home page grid.
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+## History
 
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+The 2017 Hexo blog that used to live here is preserved on the
+`archive/hexo-blog` branch and the `hexo-blog-2017` tag.
