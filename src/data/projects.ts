@@ -86,6 +86,22 @@ export const projects: Project[] = [
     year: 2026,
     featured: true,
   },
+  {
+    slug: '3d-math-visualizer',
+    title: '3D Math Visualizer',
+    pitch: 'Drag two vectors around in 2D or 3D and watch the dot and cross products update live.',
+    description:
+      'An interactive picture of the two vector products. Grab the handles on either vector, in a ' +
+      '3D scene or a flat 2D plane, and the equations recompute as you move: the dot product with ' +
+      'its projection in 2D, and the cross product with its resulting perpendicular vector.',
+    tags: ['math', '3D', 'education'],
+    tech: ['React', 'TypeScript', 'react-three-fiber', 'three.js', 'styled-components'],
+    repoUrl: 'https://github.com/wyattlindsey/3d-math-visualizer',
+    liveUrl: 'https://wyattlindsey.github.io/3d-math-visualizer/',
+    embed: 'iframe',
+    aspect: 16 / 10,
+    year: 2024,
+  },
 ];
 
 export const featuredProjects = projects.filter((p) => p.featured);
