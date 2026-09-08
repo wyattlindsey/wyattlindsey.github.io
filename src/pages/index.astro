@@ -48,4 +48,7 @@ import { featuredProjects, otherProjects } from '../data/projects';
     gap: 1.5rem;
     grid-template-columns: repeat(auto-fill, minmax(min(100%, 32rem), 1fr));
   }
+  .grid > :global(.featured) {
+    grid-column: 1 / -1;
+  }
 </style>

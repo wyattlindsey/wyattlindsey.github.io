@@ -11,7 +11,7 @@ const canEmbed = project.embed === 'iframe' && !!project.liveUrl;
 const canOpen = project.embed !== 'repo' && !!project.liveUrl;
 ---
 
-<article class="card" id={project.slug} data-project={project.slug}>
+<article class:list={["card", { featured: project.featured }]} id={project.slug} data-project={project.slug}>
   <div class="frame" style={`aspect-ratio: ${aspect}`}>
     <div class="poster" data-poster>
       {
