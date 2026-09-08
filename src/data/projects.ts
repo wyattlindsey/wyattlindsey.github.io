@@ -53,6 +53,10 @@ export const projects: Project[] = [
       'and down feedback that reweights the generator toward your taste. Under it all sits a ' +
       'physically based WebGL pan with 93 builder scales, custom layouts, and a velocity-layered ' +
       'sample engine.',
+    next:
+      'Composition with a language model: ask Claude for a phrase as structured JSON, given the ' +
+      'layout, feel, and a style prompt like "slow, sparse, resolves often", with the humanize ' +
+      'layer kept deterministic so it still sounds like a person.',
     tags: ['AI', 'music', '3D', 'audio'],
     tech: ['In-browser ML', 'n-gram model', 'React', 'TypeScript', 'three.js', 'Web Audio'],
     repoUrl: 'https://github.com/wyattlindsey/virtual-handpan',
