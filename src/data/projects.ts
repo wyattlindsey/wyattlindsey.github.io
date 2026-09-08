@@ -99,8 +99,11 @@ export const projects: Project[] = [
     repoUrl: 'https://github.com/wyattlindsey/3d-math-visualizer',
     liveUrl: 'https://wyattlindsey.github.io/3d-math-visualizer/',
     embed: 'iframe',
-    aspect: 16 / 10,
+    // The app stacks a controls bar, the scene, and an equations panel, so it
+    // needs a tall frame.
+    aspect: 3 / 2,
     year: 2024,
+    featured: true,
   },
 ];
 
