@@ -21,6 +21,8 @@ export interface Project {
   pitch: string;
   /** A short paragraph shown under the poster. */
   description?: string;
+  /** One line on what the project is heading toward, shown as "Coming next". */
+  next?: string;
   tags: string[];
   tech: string[];
   repoUrl: string;

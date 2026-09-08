@@ -45,6 +45,13 @@ const canOpen = project.embed !== 'repo' && !!project.liveUrl;
     </header>
     <p class="pitch">{project.pitch}</p>
     {project.description && <p class="description">{project.description}</p>}
+    {
+      project.next && (
+        <p class="next">
+          <span class="next-label">Coming next</span> {project.next}
+        </p>
+      )
+    }
     <ul class="tech" aria-label="Built with">
       {project.tech.map((t) => <li>{t}</li>)}
     </ul>
@@ -206,6 +213,23 @@ const canOpen = project.embed !== 'repo' && !!project.liveUrl;
   .description {
     color: var(--muted);
     font-size: 0.95rem;
+  }
+  .next {
+    color: var(--muted);
+    font-size: 0.95rem;
+  }
+  .next-label {
+    display: inline-block;
+    margin-right: 0.35rem;
+    padding: 0.05rem 0.45rem;
+    border-radius: 999px;
+    background: color-mix(in oklab, var(--accent) 18%, transparent);
+    color: var(--accent);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    vertical-align: 0.1em;
   }
   .tech {
     list-style: none;
