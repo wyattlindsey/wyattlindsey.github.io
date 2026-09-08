@@ -85,6 +85,7 @@ export const projects: Project[] = [
     repoUrl: 'https://github.com/wyattlindsey/rootwise',
     liveUrl: 'https://rootwise-deploy.vercel.app/',
     embed: 'iframe',
+    poster: '/posters/rootwise.png',
     aspect: 16 / 10,
     year: 2026,
     featured: true,
