@@ -102,7 +102,7 @@ export const projects: Project[] = [
     embed: 'iframe',
     // The app stacks a controls bar, the scene, and an equations panel, so it
     // needs a tall frame.
-    aspect: 3 / 2,
+    aspect: 4 / 3,
     year: 2024,
     featured: true,
   },
