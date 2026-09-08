@@ -97,7 +97,7 @@ const canOpen = project.embed !== 'repo' && !!project.liveUrl;
       poster.hidden = true;
       frame.appendChild(iframe);
       close.hidden = false;
-      iframe.focus();
+      iframe.focus({ preventScroll: true });
     });
 
     close.addEventListener('click', () => {
