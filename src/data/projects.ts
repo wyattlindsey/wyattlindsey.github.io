@@ -66,6 +66,26 @@ export const projects: Project[] = [
     year: 2026,
     featured: true,
   },
+  {
+    slug: 'rootwise',
+    title: 'Rootwise',
+    pitch:
+      'An AI plant advisor: Claude answers free-form gardening questions through the plant-intel ' +
+      'MCP server, with every tool call and source shown.',
+    description:
+      'A chat UI over a tool loop. Claude calls a Model Context Protocol server for species care ' +
+      'profiles, mechanism-derived companion checks, and frost-date planting windows, and the ' +
+      'trace of each call and its sources is rendered alongside the answer. A system prompt ' +
+      'honesty contract keeps claims tied to tool results, and a shared daily spend cap and rate ' +
+      'limiter guard the API budget.',
+    tags: ['AI', 'agents', 'MCP', 'gardening'],
+    tech: ['Claude API', 'MCP', 'Next.js', 'TypeScript', 'React'],
+    repoUrl: 'https://github.com/wyattlindsey/rootwise',
+    embed: 'repo',
+    aspect: 16 / 10,
+    year: 2026,
+    featured: true,
+  },
 ];
 
 export const featuredProjects = projects.filter((p) => p.featured);
