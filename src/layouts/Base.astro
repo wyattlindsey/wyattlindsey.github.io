@@ -1,0 +1,138 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = 'Interactive demos and projects by Wyatt Lindsey.' } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="/">Wyatt Lindsey</a>
+      <nav>
+        <a href="/#projects">Projects</a>
+        <a href="https://github.com/wyattlindsey" rel="me">GitHub</a>
+      </nav>
+    </header>
+    <main>
+      <slot />
+    </main>
+    <footer class="site-footer">
+      <span>&copy; {new Date().getFullYear()} Wyatt Lindsey</span>
+      <a href="https://github.com/wyattlindsey/wyattlindsey.github.io">Source for this site</a>
+    </footer>
+  </body>
+</html>
+
+<style is:global>
+  :root {
+    color-scheme: light dark;
+    --bg: #fafaf7;
+    --surface: #ffffff;
+    --text: #1c1b18;
+    --muted: #6b675e;
+    --border: #e4e1d8;
+    --accent: #b5542a;
+    --accent-ink: #ffffff;
+    --radius: 12px;
+    --measure: 72rem;
+    --font: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #141311;
+      --surface: #1e1c19;
+      --text: #ece8df;
+      --muted: #a39d90;
+      --border: #2f2c27;
+      --accent: #e0774a;
+      --accent-ink: #141311;
+    }
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+  html {
+    font-family: var(--font);
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.5;
+  }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  main {
+    flex: 1;
+    width: min(100% - 2rem, var(--measure));
+    margin: 0 auto;
+  }
+  a {
+    color: inherit;
+  }
+  h1,
+  h2,
+  h3 {
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+  }
+  code {
+    font-family: var(--mono);
+    font-size: 0.9em;
+  }
+
+  .site-header,
+  .site-footer {
+    width: min(100% - 2rem, var(--measure));
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    padding: 1.25rem 0;
+  }
+  .site-header nav {
+    display: flex;
+    gap: 1.25rem;
+  }
+  .site-header a {
+    text-decoration: none;
+    color: var(--muted);
+  }
+  .site-header a:hover,
+  .site-header .brand {
+    color: var(--text);
+  }
+  .brand {
+    font-weight: 600;
+  }
+  .site-footer {
+    color: var(--muted);
+    font-size: 0.875rem;
+    border-top: 1px solid var(--border);
+    margin-top: 4rem;
+  }
+</style>
