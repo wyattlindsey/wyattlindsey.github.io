@@ -11,7 +11,7 @@ const canEmbed = project.embed === 'iframe' && !!project.liveUrl;
 const canOpen = project.embed !== 'repo' && !!project.liveUrl;
 ---
 
-<article class:list={["card", { featured: project.featured }]} id={project.slug} data-project={project.slug}>
+<article class:list={["card", { featured: project.featured, embeds: canEmbed }]} id={project.slug} data-project={project.slug}>
   <div class="frame" style={`aspect-ratio: ${aspect}`}>
     <div class="poster" data-poster>
       {
@@ -122,6 +122,10 @@ const canOpen = project.embed !== 'repo' && !!project.liveUrl;
     position: relative;
     width: 100%;
     background: #000;
+  }
+  /* Embedded demos need room for their own UI, whatever the viewport width. */
+  .card.embeds .frame {
+    min-height: 32rem;
   }
   .frame :global(iframe) {
     position: absolute;
