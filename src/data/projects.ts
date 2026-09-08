@@ -41,13 +41,18 @@ export const projects: Project[] = [
   {
     slug: 'virtual-handpan',
     title: 'Virtual Handpan',
-    pitch: 'Audition handpan scales and note layouts in 3D before committing to an instrument.',
+    pitch:
+      'A 3D handpan that learns how you play: record takes, train a model in the browser, ' +
+      'and let it improvise phrases in your own style.',
     description:
-      'A scale library of 93 layouts from 17 builders, custom layouts from A2 to B5, and a ' +
-      'physically based WebGL pan you can play by click or keyboard. Generated phrases let you ' +
-      'hear what a set of notes does together.',
-    tags: ['music', '3D', 'audio'],
-    tech: ['React', 'TypeScript', 'three.js', 'Vite', 'Web Audio'],
+      'Generated playing comes from three layers. A melodic two-hand generator with live human ' +
+      'feel controls. A Learned mode driven by an n-gram model over scale steps and durations, ' +
+      'trained in the browser on your recorded takes, so it phrases the way you do. And thumbs up ' +
+      'and down feedback that reweights the generator toward your taste. Under it all sits a ' +
+      'physically based WebGL pan with 93 builder scales, custom layouts, and a velocity-layered ' +
+      'sample engine.',
+    tags: ['AI', 'music', '3D', 'audio'],
+    tech: ['In-browser ML', 'n-gram model', 'React', 'TypeScript', 'three.js', 'Web Audio'],
     repoUrl: 'https://github.com/wyattlindsey/virtual-handpan',
     liveUrl: 'https://wyattlindsey.github.io/virtual-handpan/',
     embed: 'iframe',
