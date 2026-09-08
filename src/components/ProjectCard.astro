@@ -1,0 +1,242 @@
+---
+import type { Project } from '../data/projects';
+
+interface Props {
+  project: Project;
+}
+
+const { project } = Astro.props;
+const aspect = project.aspect ?? 16 / 10;
+const canEmbed = project.embed === 'iframe' && !!project.liveUrl;
+const canOpen = project.embed !== 'repo' && !!project.liveUrl;
+---
+
+<article class="card" id={project.slug} data-project={project.slug}>
+  <div class="frame" style={`aspect-ratio: ${aspect}`}>
+    <div class="poster" data-poster>
+      {
+        project.poster ? (
+          <img src={project.poster} alt={`${project.title} screenshot`} loading="lazy" />
+        ) : (
+          <div class="poster-fallback" aria-hidden="true">
+            <span>{project.title}</span>
+          </div>
+        )
+      }
+      {
+        canEmbed ? (
+          <button class="launch" type="button" data-launch data-src={project.liveUrl}>
+            <span class="launch-icon" aria-hidden="true">▶</span>
+            Launch demo
+          </button>
+        ) : canOpen ? (
+          <a class="launch" href={project.liveUrl} target="_blank" rel="noopener">
+            Open demo ↗
+          </a>
+        ) : null
+      }
+    </div>
+  </div>
+
+  <div class="body">
+    <header>
+      <h3>{project.title}</h3>
+      <span class="year">{project.year}</span>
+    </header>
+    <p class="pitch">{project.pitch}</p>
+    {project.description && <p class="description">{project.description}</p>}
+    <ul class="tech" aria-label="Built with">
+      {project.tech.map((t) => <li>{t}</li>)}
+    </ul>
+    <div class="actions">
+      {
+        canOpen && (
+          <a href={project.liveUrl} target="_blank" rel="noopener">
+            Open full screen ↗
+          </a>
+        )
+      }
+      <a href={project.repoUrl} target="_blank" rel="noopener">
+        Source on GitHub ↗
+      </a>
+      {
+        canEmbed && (
+          <button class="link-button" type="button" data-close hidden>
+            Close demo
+          </button>
+        )
+      }
+    </div>
+  </div>
+</article>
+
+<script>
+  // Demos boot only on demand so a page of WebGL and audio apps does not
+  // start them all at once. Launch swaps the poster for an iframe; Close
+  // removes the iframe and restores the poster.
+  for (const card of document.querySelectorAll<HTMLElement>('[data-project]')) {
+    const frame = card.querySelector<HTMLElement>('.frame');
+    const poster = card.querySelector<HTMLElement>('[data-poster]');
+    const launch = card.querySelector<HTMLButtonElement>('[data-launch]');
+    const close = card.querySelector<HTMLButtonElement>('[data-close]');
+    if (!frame || !poster || !launch || !close) continue;
+
+    launch.addEventListener('click', () => {
+      const iframe = document.createElement('iframe');
+      iframe.src = launch.dataset.src ?? '';
+      iframe.title = `${card.querySelector('h3')?.textContent ?? 'Project'} demo`;
+      iframe.allow = 'autoplay; fullscreen; midi; gamepad';
+      iframe.setAttribute('allowfullscreen', '');
+      poster.hidden = true;
+      frame.appendChild(iframe);
+      close.hidden = false;
+      iframe.focus();
+    });
+
+    close.addEventListener('click', () => {
+      frame.querySelector('iframe')?.remove();
+      poster.hidden = false;
+      close.hidden = true;
+      launch.focus();
+    });
+  }
+</script>
+
+<style>
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  .frame {
+    position: relative;
+    width: 100%;
+    background: #000;
+  }
+  .frame :global(iframe) {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+  }
+  .poster {
+    position: absolute;
+    inset: 0;
+  }
+  .poster img,
+  .poster-fallback {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .poster-fallback {
+    display: grid;
+    place-items: center;
+    background:
+      radial-gradient(120% 90% at 20% 10%, color-mix(in oklab, var(--accent) 55%, transparent), transparent 60%),
+      radial-gradient(90% 80% at 85% 90%, color-mix(in oklab, var(--accent) 30%, #000), #000 70%);
+    color: #fff;
+    font-size: clamp(1.25rem, 3vw, 2rem);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+  .launch {
+    position: absolute;
+    left: 50%;
+    bottom: 1.25rem;
+    transform: translateX(-50%);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1.1rem;
+    border: 0;
+    border-radius: 999px;
+    background: var(--accent);
+    color: var(--accent-ink);
+    font: inherit;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgb(0 0 0 / 0.35);
+  }
+  .launch:hover {
+    filter: brightness(1.08);
+  }
+  .launch:focus-visible {
+    outline: 3px solid #fff;
+    outline-offset: 2px;
+  }
+  .launch-icon {
+    font-size: 0.8em;
+  }
+
+  .body {
+    padding: 1.25rem 1.5rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+  .body header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+  }
+  h3 {
+    margin: 0;
+    font-size: 1.25rem;
+  }
+  .year {
+    color: var(--muted);
+    font-size: 0.875rem;
+    font-variant-numeric: tabular-nums;
+  }
+  p {
+    margin: 0;
+  }
+  .pitch {
+    font-weight: 500;
+  }
+  .description {
+    color: var(--muted);
+    font-size: 0.95rem;
+  }
+  .tech {
+    list-style: none;
+    margin: 0.25rem 0 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+  .tech li {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    padding: 0.15rem 0.5rem;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    color: var(--muted);
+  }
+  .actions {
+    margin-top: 0.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    font-size: 0.9rem;
+  }
+  .link-button {
+    background: none;
+    border: 0;
+    padding: 0;
+    font: inherit;
+    color: inherit;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+</style>
