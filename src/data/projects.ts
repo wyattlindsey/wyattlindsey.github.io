@@ -78,9 +78,8 @@ export const projects: Project[] = [
       'profiles, mechanism-derived companion checks, and frost-date planting windows, and the ' +
       'trace of each call and its sources is rendered alongside the answer. A system prompt ' +
       'honesty contract keeps claims tied to tool results, and a shared daily spend cap and rate ' +
-      'limiter guard the API budget. The embedded deployment runs in demo mode: it replays one ' +
-      'recorded conversation against fixture data, so every question returns the same answer, but ' +
-      'the tool calls, sources, and caveats shown are real output from the MCP server.',
+      'limiter guard the API budget. The embedded deployment is live: questions go to Claude on ' +
+      'a shared daily budget, and once that is spent it asks for your own API key.',
     tags: ['AI', 'agents', 'MCP', 'gardening'],
     tech: ['Claude API', 'MCP', 'Next.js', 'TypeScript', 'React'],
     repoUrl: 'https://github.com/wyattlindsey/rootwise',
