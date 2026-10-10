@@ -157,8 +157,21 @@ const canOpen = project.embed !== 'repo' && !!project.liveUrl;
     font-weight: 600;
     letter-spacing: -0.02em;
   }
+  /* Dims the screenshot so it reads as a preview rather than the live app. */
+  .poster::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgb(0 0 0 / 0.4);
+    transition: background 0.2s;
+  }
+  .poster:hover::after,
+  .poster:focus-within::after {
+    background: rgb(0 0 0 / 0.28);
+  }
   .launch {
     position: absolute;
+    z-index: 1;
     left: 50%;
     bottom: 1.25rem;
     transform: translateX(-50%);
@@ -182,6 +195,11 @@ const canOpen = project.embed !== 'repo' && !!project.liveUrl;
   .launch:focus-visible {
     outline: 3px solid #fff;
     outline-offset: 2px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .poster::after {
+      transition: none;
+    }
   }
   .launch-icon {
     font-size: 0.8em;
