@@ -100,6 +100,11 @@ const canOpen = project.embed !== 'repo' && !!project.liveUrl;
       iframe.focus({ preventScroll: true });
     });
 
+    // The screenshot can pass for the live app, so a click anywhere on it launches.
+    poster.addEventListener('click', (event) => {
+      if (event.target instanceof Node && !launch.contains(event.target)) launch.click();
+    });
+
     close.addEventListener('click', () => {
       frame.querySelector('iframe')?.remove();
       poster.hidden = false;
@@ -168,6 +173,9 @@ const canOpen = project.embed !== 'repo' && !!project.liveUrl;
   .poster:hover::after,
   .poster:focus-within::after {
     background: rgb(0 0 0 / 0.28);
+  }
+  .poster:has([data-launch]) {
+    cursor: pointer;
   }
   .launch {
     position: absolute;
