@@ -173,31 +173,41 @@ const canOpen = project.embed !== 'repo' && !!project.liveUrl;
     position: absolute;
     z-index: 1;
     left: 50%;
-    bottom: 1.25rem;
-    transform: translateX(-50%);
+    top: 50%;
+    transform: translate(-50%, -50%);
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
-    padding: 0.6rem 1.1rem;
+    gap: 0.6rem;
+    padding: 0.9rem 1.75rem;
     border: 0;
     border-radius: 999px;
     background: var(--accent);
     color: var(--accent-ink);
     font: inherit;
-    font-weight: 600;
+    font-size: 1.125rem;
+    font-weight: 700;
+    white-space: nowrap;
     text-decoration: none;
     cursor: pointer;
-    box-shadow: 0 6px 20px rgb(0 0 0 / 0.35);
+    box-shadow:
+      0 0 0 6px rgb(255 255 255 / 0.18),
+      0 10px 30px rgb(0 0 0 / 0.5);
+    transition: transform 0.15s, box-shadow 0.15s;
   }
-  .launch:hover {
-    filter: brightness(1.08);
+  .launch:hover,
+  .poster:hover .launch {
+    transform: translate(-50%, -50%) scale(1.05);
+    box-shadow:
+      0 0 0 8px rgb(255 255 255 / 0.26),
+      0 12px 34px rgb(0 0 0 / 0.55);
   }
   .launch:focus-visible {
     outline: 3px solid #fff;
     outline-offset: 2px;
   }
   @media (prefers-reduced-motion: reduce) {
-    .poster::after {
+    .poster::after,
+    .launch {
       transition: none;
     }
   }
